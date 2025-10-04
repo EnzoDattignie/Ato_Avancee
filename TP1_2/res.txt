@@ -1,0 +1,7 @@
+Script;Temps 1 (s);Temps 2 (s);Temps 3 (s);Temps 4 (s);Temps 5 (s)
+addition_double.out;2.63;2.60;2.60;2.60;2.59
+addition_int.out;1.55;1.51;1.51;1.53;1.50
+division_double.out;2.98;3.04;3.08;3.01;2.99
+division_int.out;5.11;5.05;5.10;5.10;5.08
+multiplication_double.out;1.92;1.92;1.92;1.92;1.93
+multiplication_int.out;1.47;1.47;1.46;1.46;1.47

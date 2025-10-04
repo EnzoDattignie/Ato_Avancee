@@ -1,0 +1,25 @@
+Script;Temps 1 (s);Temps 2 (s);Temps 3 (s);Temps 4 (s);Temps 5 (s)
+additionO0.out;4.62;4.26;4.64;4.74;5.60
+additionO1.out;1.66;2.05;2.12;2.45;2.40
+additionO2.out;1.66;2.29;2.27;2.15;2.53
+additionO3.out;1.74;2.31;2.19;1.98;2.18
+additionO4.out;1.92;2.12;2.48;2.10;2.25
+additionO5.out;1.80;2.23;2.22;2.32;2.63
+divisionO0.out;5.04;6.23;6.00;6.13;6.42
+divisionO1.out;1.26;1.17;1.19;1.17;1.07
+divisionO2.out;0.88;1.28;1.45;1.39;0.93
+divisionO3.out;1.75;2.10;2.15;1.89;1.90
+divisionO4.out;1.85;2.00;1.98;2.13;2.05
+divisionO5.out;1.66;2.12;2.00;1.93;2.19
+multiplicationO0.out;3.80;3.73;3.99;3.80;4.14
+multiplicationO1.out;1.35;1.27;1.37;1.09;1.46
+multiplicationO2.out;1.30;1.23;1.42;1.39;1.37
+multiplicationO3.out;1.91;1.85;2.06;2.00;1.80
+multiplicationO4.out;2.03;2.00;1.95;1.79;2.38
+multiplicationO5.out;1.95;2.02;1.98;2.12;2.08
+powerO0.out;37.11;35.48;35.74;41.59;40.90
+powerO1.out;2.10;2.27;2.11;2.04;2.15
+powerO2.out;2.37;2.27;2.15;2.30;2.25
+powerO3.out;2.19;2.17;2.00;2.24;2.36
+powerO4.out;2.17;2.30;2.24;2.51;2.49
+powerO5.out;2.33;2.34;2.14;2.61;1.88

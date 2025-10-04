@@ -1,0 +1,10 @@
+Script;Temps 1 (s);Temps 2 (s);Temps 3 (s);Temps 4 (s);Temps 5 (s)
+addition1.out;0.44;0.30;0.30;0.40;0.40
+addition2.out;2.34;2.10;2.21;1.98;2.01
+addition3.out;3.30;3.91;4.07;3.42;3.31
+division1.out;0.45;0.31;0.37;0.26;0.33
+division2.out;1.79;1.77;1.75;1.53;1.64
+division3.out;3.22;2.98;3.04;3.42;3.42
+multiplication1.out;0.35;0.44;0.30;0.44;0.37
+multiplication2.out;2.14;2.48;2.30;2.02;2.09
+multiplication3.out;3.26;3.38;3.46;3.40;3.28
