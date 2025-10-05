@@ -7,7 +7,7 @@ int main() {
     double x = 1;
     for  (int i=0; i < max; i++ ) {
         x = x/0.5;
-        if (x > max) {
+        if (x > max) { 
             x = 1;
         }
     }
