@@ -1,7 +1,9 @@
-Extension=exe
+echo "./mesure.sh N AimedDir Output Extension"
+
+Extension=out
 Dir=./TP1
 Output=./TP1_2/res.txt
-N=1
+N=0
 if [ $# -gt 0 ]
 then
 N=$1
