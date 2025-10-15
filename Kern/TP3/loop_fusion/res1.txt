@@ -1,0 +1,3 @@
+Script;Temps 1 (s);Temps 2 (s);Temps 3 (s);Temps 4 (s);Temps 5 (s)
+loop-fusion-bad.out;1.25;1.16;1.35;1.36;1.55
+loop-fusion-good.out;1.47;1.46;1.47;1.37;1.34

@@ -1,0 +1,5 @@
+Script;Temps 1 (s);Temps 2 (s);Temps 3 (s);Temps 4 (s);Temps 5 (s)
+Lennard1.out;3.82;3.44;3.71;3.54;3.65
+Lennard2.out;2.02;2.45;2.21;2.04;2.30
+LennardFinal.out;2.02;2.38;2.64;2.58;1.92
+LennardNaif.out;21.04;23.39;22.17;22.24;21.46
