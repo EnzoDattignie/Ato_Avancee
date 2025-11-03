@@ -2,8 +2,12 @@
 #include <stdio.h>
 #include <math.h>
 
-int main() {
-    const long N = 1e9;
+int main(int argc, char *argv[]) {
+    long double n = 1;
+    if (argc == 2) {
+        sscanf(argv[1],"%Lf",&n);
+    }
+    const long N = (long)n;
     const double Rc = 2.5;
     
     int interactions (double x1, double y1, double x2, double y2, double *u12, double *f12x, double *f12y) {

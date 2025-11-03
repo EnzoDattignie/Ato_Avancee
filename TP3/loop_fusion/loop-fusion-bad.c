@@ -1,8 +1,15 @@
 #include <stdio.h>
 
-int main() {
-    long int ndim=10000;
-    long int niter=100000;
+int main(int argc, char *argv[]) {
+    long double n = 10000;
+    long double n2 = 100000;
+    if (argc == 3) {
+        sscanf(argv[1],"%Lf",&n);
+        sscanf(argv[2],"%Lf",&n2);
+    }
+    const long N = (long)n;
+    long int ndim=n;
+    long int niter=n2;
  
     int a[ndim], b[ndim];
 

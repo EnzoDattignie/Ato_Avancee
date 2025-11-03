@@ -1,5 +1,0 @@
-Script;Temps 1 (s);Temps 2 (s);Temps 3 (s);Temps 4 (s);Temps 5 (s)
-Lennard102.out;2.21;1.91;1.98;2.12;2.04
-Lennard202.out;2.10;1.96;2.23;2.14;2.09
-LennardFinal02.out;2.42;2.07;1.98;2.27;2.13
-LennardNaif02.out;1.99;2.13;2.41;2.04;2.01

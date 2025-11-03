@@ -1,3 +1,0 @@
-Script;Temps 1 (s);Temps 2 (s);Temps 3 (s);Temps 4 (s);Temps 5 (s)
-loopinterchange-bad.out;1.28;1.26;0.97;1.03;1.02
-loopinterchange-good.out;0.30;0.29;0.28;0.38;0.29
