@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # Init:
 samples = 3
 # cFile = ["add","div","mult","sqrt"]
-cFile = ["add"]
+cFile = ["pow"]
 ext = ".out"
 Opt = ["0","1","2","3"]
 

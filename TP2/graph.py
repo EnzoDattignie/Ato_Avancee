@@ -4,9 +4,9 @@ import matplotlib.pyplot as plt
 
 
 N = []
-repo = "Lennard/res/"
-Files = ["LennardNaif1.txt","Lennard11.txt","Lennard21.txt","LennardFinal1.txt"]
-Legendes = ["Version Non Opti","Première Opti","Deuxième Opti","Version Finale"]
+repo = "res/"
+Files = ["pow0.txt","pow1.txt","pow2.txt","pow3.txt"]
+Legendes = ["-O0","-O1","-O2","-O3"]
 res = [[],[],[],[]]
 
 def toFloat(string) :
@@ -22,7 +22,7 @@ for i in range(0, len(Files)) :
             res.append(float(lines.strip().split(";")[1]))
         plt.plot(N,res)
 
-plt.title("Temps d'exécution de N potentiels \navec différentes optimisations")
+plt.title("Temps d'exécution de N fonctions pow \navec différents paramètres -Ox")
 plt.xlabel("N")
 plt.ylabel("Temps(s)")
 plt.legend(Legendes)
