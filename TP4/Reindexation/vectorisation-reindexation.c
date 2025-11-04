@@ -12,7 +12,7 @@ compile/run as gcc -O3 -fopt-info-vec -fopt-info-vec-missed vectorisation-reinde
 
 int main() {	  
 
-  const int dim=100000;
+  const int dim=1000000;
   double A[dim];
 
   // initialise array

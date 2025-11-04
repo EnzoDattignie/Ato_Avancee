@@ -9,7 +9,7 @@ compile/run as gcc -O3 -fopt-info-vec -fopt-info-vec-missed vectorisation-reinde
 #include <stdio.h>
 #include <assert.h>
 
-#define dim 100000
+#define dim 10000000
 int A[dim];
 int temp[dim];
 
