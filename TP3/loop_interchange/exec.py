@@ -13,8 +13,8 @@ Opt = ["0"]
 subprocess.run(["mkdir","out"])
 subprocess.run(["mkdir","res"])
 
-N = [1e4]
-dim = np.linspace(100,700,7)
+N = [1e2,3e2,5e2,7e2,9e2]
+dim = np.linspace(700,700,1)
 
 
 print(N)
@@ -30,16 +30,16 @@ for elmt in cFile :
         res.append([elmt+O])
 
 for j in range (0,len(res)):
-    for i in range (0,len(dim)) :
-        res[j].append([str(dim[i])])
+    for i in range (0,len(N)) :
+        res[j].append([str(N[i])])
 
 
 #mesure
 for i in range(0,samples) :
     for j in range (0, len(Liste)) :
-        for n in range (0,len(dim)) :
-            subprocess.run(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[0]),str(dim[n])])
-            print(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[0]),str(dim[n])])
+        for n in range (0,len(N)) :
+            subprocess.run(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[n]),str(dim[0])])
+            print(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[n]),str(dim[0])])
             with open("./temp.txt") as file :
                 i = 0
                 for Line in file :

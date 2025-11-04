@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 repo = "res/"
-Files = ["loopinterchange-bad1.txt","loopinterchange-good1.txt"]
+Files = ["loopinterchange-bad0.txt","loopinterchange-good0.txt"]
 Legendes = ["Version non optimisée","Version optimisée"]
 
 def toFloat(string) :
@@ -20,8 +20,8 @@ for i in range(0, len(Files)) :
             res.append(float(lines.strip().split(";")[1]))
         plt.plot(N,res)
 
-plt.title("Temps d'exécution pour 10000 exécutions de la boucle")
-plt.xlabel("Dimension des tableaux")
+plt.title("Temps d'exécution pour N exécutions avec\n des tableaux de taille 900x900")
+plt.xlabel("N")
 plt.ylabel("Temps(s)")
 plt.legend(Legendes)
 plt.show()

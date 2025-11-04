@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 
 
 repo = "res/"
-Files = ["loop-fusion-bad1.txt","loop-fusion-good1.txt"]
+Files = ["loop-fusion-bad0.txt","loop-fusion-good0.txt"]
 Legendes = ["Version non optimisée","Version optimisée"]
 
 def toFloat(string) :
@@ -16,12 +16,12 @@ for i in range(0, len(Files)) :
         N = []
         res = []
         for lines in file :
-            N.append(float(lines.strip().split(";")[0]))
+            N.append(toFloat(lines.strip().split(";")[0]))
             res.append(float(lines.strip().split(";")[1]))
         plt.plot(N,res)
 
-plt.title("Temps d'exécution pour 100000 exécutions de la boucle")
-plt.xlabel("Dimension des tableaux")
+plt.title("Temps d'exécution pour N exécutions avec \ndes tableaux de dimension 500")
+plt.xlabel("N")
 plt.ylabel("Temps(s)")
 plt.legend(Legendes)
 plt.show()

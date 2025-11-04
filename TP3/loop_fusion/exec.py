@@ -8,13 +8,13 @@ samples = 3
 cFile = ["loop-fusion-bad","loop-fusion-good"]
 # cFile = ["add"]
 ext = ".out"
-Opt = ["0"]
+Opt = ["3"]
 
 subprocess.run(["mkdir","out"])
 subprocess.run(["mkdir","res"])
 
-N = [1e6]
-ndim = np.linspace(100,900,9)
+N = ["1e6","3e6","5e6","7e6","9e6"]
+ndim = np.linspace(900,900,1)
 
 Liste  = []
 res = []
@@ -27,20 +27,21 @@ for elmt in cFile :
         res.append([elmt+O])
 
 for j in range (0,len(res)):
-    for i in range (0,len(ndim)) :
-        res[j].append([str(ndim[i])])
+    for i in range (0,len(N)) :
+        res[j].append([str(N[i])])
 
 
 #mesure
 for i in range(0,samples) :
     for j in range (0, len(Liste)) :
-        for n in range (0,len(ndim)) :
-            subprocess.run(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[0]),str(ndim[n])])
-            print(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[0]),str(ndim[n])])
+        for n in range (0,len(N)) :
+            subprocess.run(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[n]),str(ndim[0])])
+            print(["/usr/bin/time","-o","temp.txt","./out/"+Liste[j],str(N[n]),str(ndim[0])])
             with open("./temp.txt") as file :
                 i = 0
                 for Line in file :
                     if i == 0 :
+                        print(Line)
                         res[j][n+1].append(Line.split(" ")[0].split("u")[0])
                         i = 2
 
