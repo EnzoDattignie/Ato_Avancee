@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # Init:
 samples = 3
 # cFile = ["add","div","mult","sqrt"]
-cFile = ["sqrt"]
+cFile = ["add"]
 ext = ".out"
 Opt = ["0","1","2","3"]
 
@@ -71,6 +71,8 @@ for i in range (0, len(res)) :
             file.write(str(x[i])+";"+str(y[i])+"\n")
 
 
-
+plt.title("Temps d'exécution selon différents degrés \nd'optimisation pour N opérations")
+plt.xlabel("N")
+plt.ylabel("Temps(s)")
 plt.legend(legendes)
 plt.show()

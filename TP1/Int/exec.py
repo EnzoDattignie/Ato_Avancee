@@ -71,6 +71,8 @@ for i in range (0, len(res)) :
             file.write(str(x[i])+";"+str(y[i])+"\n")
 
 
-
+plt.title("Temps d'exécution pour N opérations")
+plt.xlabel("N")
+plt.ylabel("Temps(s)")
 plt.legend(legendes)
 plt.show()

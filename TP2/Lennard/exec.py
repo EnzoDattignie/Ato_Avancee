@@ -5,17 +5,17 @@ import matplotlib.pyplot as plt
 
 # Init:
 samples = 3
-# cFile = ["LennardNaif","Lennard1","Lennard2","LennardFinal"]
+cFile = ["LennardNaif","Lennard1","Lennard2","LennardFinal"]
 # cFile = ["sqrt"]
 ext = ".out"
-Opt = ["1","2"]
+Opt = ["0"]
 
 subprocess.run(["mkdir","out"])
 subprocess.run(["mkdir","res"])
 
 N = []
 a = np.linspace(1,9,5)
-b = np.linspace(8,8,1)
+b = np.linspace(7,7,1)
 for i in range (0,len(b)) :
     for j in range(0,len(a)) :
         N.append(str(a[j])+"e"+str(b[i]))
