@@ -70,6 +70,7 @@ int main() {
 
 //  // loop #6: piste de vectorisation pas tout a fait juste
   for (int i=0; i<dim; i++) {
+    printf("%d\n",y[i]);
     temp[i] = x[y[i]];  
   }
   for (int i=0; i<dim; i++) {

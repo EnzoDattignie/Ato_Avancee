@@ -10,21 +10,25 @@ compilation:  gcc -fopenmp race.c
 
 void main() {
 
+  int Liste[10];
+  for (int i = 0;i < 10;i++) {
+    Liste[i]=0;
+  }
   int A = 0;
   omp_set_num_threads(5);
 
 #pragma omp parallel
   {
     int ID = omp_get_thread_num();
-    int Aold;
-    #pragma omp critical
-    {
-    Aold=A;
-    A += ID;
+    Liste[ID] += 1;
+
+    printf("ID : %d\n",ID);
     }
-    printf("A on rank %d: %d  -->  %d \n",ID,Aold,A);
-    }
+
+  
+  for (int i = 0;i < 10;i++) {
+    A += Liste[i]*i;
+  }
 
   printf("A:  %d (expected: 10)\n",A);
-
 }
