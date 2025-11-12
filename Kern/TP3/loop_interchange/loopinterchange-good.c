@@ -1,11 +1,15 @@
 #include <stdio.h> 
 
 
-int main() {
-
-  const int N=10000;
-  
-  const int dim=100;
+int main(int argc, char *argv[]) {
+  long double n = 10000;
+  long double n2 = 100;
+  if (argc == 3) {
+      sscanf(argv[1],"%Lf",&n);
+      sscanf(argv[2],"%Lf",&n2);
+  }
+  long int N=(long)n;
+  long int dim=(long)n2;
   double a [dim][dim];
   double b [dim][dim];
   

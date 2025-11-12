@@ -8,26 +8,25 @@ compile/run as gcc -O3 -fopt-info-vec -fopt-info-vec-missed vectorisation-reinde
 
 #include <stdio.h>
 #include <assert.h>
-
-#define dim 100000
-int A[dim];
-int temp[dim];
+#define dim 1000000
 
 int main() {	  
 
+  static double A[dim];
+  static double B[dim];
+  
   // initialise array
   for (int i=0; i<dim; i++)
-    A[i] = (i+1);
+    A[i] = 1./(i+1);
 
-    for (int i=0; i<dim; i++) {
-      temp[i] = A[dim-i-1];}
+  for (int i=0; i<dim; i++)
+    B[i] = A[dim-i-1];
+
   // calculate required sum
-  int S=0;
-  for (int i=0; i<dim; i++) {
-    S += (i+1)*A[i]; 
-  }
-  for (int i=0; i<dim; i++) {
-    S += i*temp[i];}
+  double S=0;
+  for (int i=0; i<dim; i++)
+    S += (i+1)*A[i] +1./(i+1)*B[i]; 
+  
 
-  printf("S: %d",S); // dummy print
+  printf("S: %lf",S); // dummy print
 }
