@@ -109,7 +109,7 @@ int nb_part = N;
         }
         if (r2 < Rc*Rc) {
         double r2i = 1/r2;
-        double val_u = 4*(pow(r2i,2)-pow(r2i,3));
+        double val_u = 4*(pow(r2i,6)-pow(r2i,3));
         P1->u = P1->u + val_u;
         P2->u = P2->u + val_u;
         }
