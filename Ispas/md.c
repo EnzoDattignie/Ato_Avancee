@@ -165,13 +165,13 @@ void report (int what, FILE *fp, int ndim, int n, int steps, double pos[], doubl
 }
 
 int main (int argc, char * argv[]) {
-  int i, n, k, ndim, nsteps = 100;
+  int i, n, k, ndim, nsteps = 10;
   double *box, dt = 0.002, rc = 2.5, epot;
   double *pos, *vel, *forc;
   FILE *file, *log;
 
   file = fopen("nano_A.xyz","r");
-  log  = fopen("output.log","w");
+  log  = fopen("output002.log","w");
   /* Read input configuration and allocate arrays */
   read_file(file, &n, &ndim, &box, &pos, &vel);
   forc = malloc(n*ndim*sizeof(*forc));
@@ -180,7 +180,7 @@ int main (int argc, char * argv[]) {
   /* Main MD loop */
   for (i=0; i<nsteps; i++) {
     evolve(ndim,n,dt,rc,box,pos,vel,forc,&epot);
-    if (i % 10 == 0) {
+    if (i % 1 == 0) {
       report(1,log,ndim,n,i,pos,vel,epot);}
   }
   fclose(file);
