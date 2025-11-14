@@ -84,7 +84,7 @@ void pos_center (int ndim, int n, double pos[],double center[],char ListAB[]) {
 
 /* Evaluate the potential energy and the forces between particles */
 void forces (int ndim, int n, double rcut, double box[], double pos[],
-		double forc[], double *epot) {
+		double forc[], double *epot,int ListeVerlet[n*n]) {
   double rij[ndim], rijsq, uij, wij;
   int i, j, k;
   *epot = 0.0;
@@ -92,6 +92,7 @@ void forces (int ndim, int n, double rcut, double box[], double pos[],
     forc[i] = 0.0;
   for (i=0; i<n; i++) {
     for (j=i+1; j<n; j++) {
+      if (ListeVerlet[i*n+j]==1) {
       for (k=0; k<ndim; k++) 
 	rij[k] = pos[ndim*i+k] - pos[ndim*j+k];
       // pbc(ndim, rij, box);
@@ -107,12 +108,13 @@ void forces (int ndim, int n, double rcut, double box[], double pos[],
 	}
       }
     }
+    }
   }
 }
 
 /* Integration step using the velocity-Verlet algorithm */
 void evolve (int ndim, int n, double dt, double rcut, double box[],
-		double pos[], double vel[], double forc[], double *epot) {
+		double pos[], double vel[], double forc[], double *epot,int ListeVerlet[]) {
   int i, j, k;
   double mass = 1.0;
   
@@ -124,7 +126,7 @@ void evolve (int ndim, int n, double dt, double rcut, double box[],
   for (i=0; i<n; i++)
     // pbc(ndim, &(pos[i*ndim]), box);
 
-  forces(ndim, n, rcut, box, pos, forc, epot);
+  forces(ndim, n, rcut, box, pos, forc, epot,ListeVerlet);
 
   for (i=0; i<n; i++) 
     for (k=0; k<ndim; k++) 
@@ -187,6 +189,27 @@ void report (int what, FILE *fp, int ndim, int n, int steps, double pos[], doubl
   }
 }
 
+void ListeVerlet(int n, int ndim, double rverlet, double pos[], double box[], int Liste[]){
+  double rij[ndim];
+  for (int i = 0;i<n; i++) {
+    for (int j = i+1; j < n; j++) {
+      double rijsq = 0;
+      for (int d = 0; d < ndim; d++) 
+        rij[d] = pos[i*ndim+d]-pos[j*ndim+d];
+        // pbc(ndim, rij, box);
+      for (int d = 0; d < ndim; d++) 
+        rijsq += rij[d]*rij[d];
+      if (rijsq < rverlet) {
+        Liste[i*n+j] = 1;
+        // printf("Oui part %d %d\n",i,j);
+      } else {
+        Liste[i*n+j] = 0;
+        // printf("Non part %d %d\n",i,j);
+      }
+    }
+  }
+}
+
 void write_xyz (FILE *fp, int ndim, int n, double pos[]) {
   int i, j;
   fprintf(fp, "%d\n", n);
@@ -203,23 +226,29 @@ void write_xyz (FILE *fp, int ndim, int n, double pos[]) {
 int main (int argc, char * argv[]) {
   int i, n, k, ndim, nsteps = 250;
   char *AB;
-  double *box, dt = 0.002, rc = 2.5, epot;
+  double *box, dt = 0.002, rc = 2.5, rverlet = 0.3+rc, epot;
   double *pos, *vel, *forc;
   FILE *file, *log, *write;
+  
 
   write = fopen("test.xyz","w");
-  file = fopen("nano_A_B2.xyz","r");
+  file = fopen("nano_A_B2","r");
   log  = fopen("output_test.log","w");
   /* Read input configuration and allocate arrays */
   read_file(file, &n, &ndim, &box, &pos, &vel, &AB);
+  int Liste[n*n];
   forc = malloc(n*ndim*sizeof(*forc));
-  forces(ndim,n,rc,box,pos,forc,&epot);
+  // Liste = malloc(n*n*sizeof(*Liste));
+  ListeVerlet(n,ndim, rverlet, pos,box,Liste);
+  forces(ndim,n,rc,box,pos,forc,&epot,Liste);
   report(0,log,ndim,n,0,pos,vel,epot,AB);
   /* Main MD loop */
   for (i=0; i<nsteps; i++) {
-    evolve(ndim,n,dt,rc,box,pos,vel,forc,&epot);
+    evolve(ndim,n,dt,rc,box,pos,vel,forc,&epot,Liste);
     if (i % 10 == 0) {
       report(1,log,ndim,n,i,pos,vel,epot,AB);}
+    if (i % 20 == 0) {
+      ListeVerlet(n,ndim, rverlet, pos,box,Liste);}
     if (i%50 == 0) {
       write_xyz(write,ndim,n,pos);
     }
