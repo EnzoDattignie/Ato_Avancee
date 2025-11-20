@@ -1,0 +1,25 @@
+
+Currently Loaded Modules:
+  1) deprecated   2) hwloc/2.12.0   3) cv-standard/openmpi/psm2/gcc49/2.0.1
+
+ 
+
+------------------------------------------------------
+Message du Job : Bonjour depuis le cluster !
+Ce job tourne sur le noeud : io-cpu-03.io.internal
+Lancé le : Wed Nov 19 01:28:44 PM CET 2025
+------------------------------------------------------
+
+Currently Loaded Modules:
+  1) deprecated   2) hwloc/2.12.0   3) cv-standard/openmpi/psm2/gcc49/2.0.1
+
+ 
+
+Running on: io-cpu-03
+SLURM_NTASKS=
+SLURM_CPUS_PER_TASK=
+SLURM_NNODES=1
+Code hello
+HELLO WORLD on cluster IO!
+Le job va maintenant 'dormir' pendant 20 secondes...
+Le 'travail' est terminé.
