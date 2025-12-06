@@ -7,7 +7,7 @@ g_OO = np.zeros(500)
 g_SiO = np.zeros(500)
 g_SiSi = np.zeros(500)
 
-input = "paire_save_3500K_10pt.log"
+input = "res/paire_save_3500K_100pt.log"
 
 with open(input,"r") as file :
     lines = file.readlines()
@@ -24,4 +24,6 @@ plt.plot(r,g_OO,label="O-O")
 plt.plot(r,g_SiO,label="Si-O")
 plt.plot(r,g_SiSi,label="Si-Si")
 plt.legend()
+plt.xlabel("r (\u03c3)")
+plt.ylabel("g(r)")
 plt.show()

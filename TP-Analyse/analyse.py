@@ -6,13 +6,13 @@ import matplotlib.pyplot as plt
 
 # box = np.array([24.7,24.7,24.7])
 # input = "pos-300K.xyz"
-# output = "paire_save_300K_100pt.log"
+# output = "res/paire_save_300K_100pt.log"
 
 box = np.array([24.8,24.8,24.8])
 input = "pos-3500K.xyz"
-output = "paire_save_3500K_1pt.log"
+output = "res/paire_save_3500K_10pt.log"
 nk = 500
-nstep = 100
+nstep = 10
 
 n_Si = 0
 n_O = 0
