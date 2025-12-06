@@ -17,20 +17,4 @@
       #                      COMMANDES À EXÉCUTER PAR LE JOB
       #_______________________________________________________________________________
 
-      module list
-      echo "------------------------------------------------------"
-      echo "Message du Job : Bonjour depuis le cluster !"
-      echo "Ce job tourne sur le noeud : $(hostname)" # Affiche le nom du noeud de calcul
-      echo "Lancé le : $(date)"                       # Affiche la date et l'heure
-      echo "------------------------------------------------------"
- 
-	echo "Running on: $SLURM_NODELIST"
-	echo "SLURM_NTASKS=$SLURM_NTASKS"
-      	echo "SLURM_CPUS_PER_TASK=$SLURM_CPUS_PER_TASK"
-	echo "SLURM_NNODES=$SLURM_NNODES"
-	echo "Code hello" 
-      ./hello.x
-      # On simule un petit travail qui dure 20 secondes
-      echo "Le job va maintenant 'dormir' pendant 20 secondes..."
-      sleep 20
-      echo "Le 'travail' est terminé."
+./a.out
