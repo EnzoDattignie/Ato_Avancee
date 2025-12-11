@@ -4,13 +4,13 @@ import matplotlib.pyplot as plt
 
 # On commence par lire la donnée
 
-# box = np.array([24.7,24.7,24.7])
-# input = "pos-300K.xyz"
-# output = "res/paire_save_300K_100pt.log"
+box = np.array([24.7,24.7,24.7])
+input = "pos-300K.xyz"
+output = "res/paire_save_300K_10pt.log"
 
-box = np.array([24.8,24.8,24.8])
-input = "pos-3500K.xyz"
-output = "res/paire_save_3500K_10pt.log"
+# box = np.array([24.8,24.8,24.8])
+# input = "pos-3500K.xyz"
+# output = "res/paire_save_3500K_100pt.log"
 nk = 500
 nstep = 10
 
@@ -95,6 +95,9 @@ print("Calculating for O-O ...")
 
 h1 = np.zeros(nk)
 g1 = np.zeros(nk)
+
+rho = n_O/np.prod(box)
+const = 4/3*np.pi*rho
 # Calcul du h
 for m in range(0,nstep) :
     for i in range(0,n_O) :
@@ -110,7 +113,7 @@ for m in range(0,nstep) :
 
 #normalisation pour g
 for k in range(0,nk) :
-    g1[k] = h1[k]/(n*nstep)
+    g1[k] = h1[k]/(n_O*nstep)
     r_low = (k-1)*dr
     r_high = r_low+dr 
     h_id = const*(r_high**3 - r_low**3) #Aire de la surface entre r et r+dr
@@ -126,6 +129,8 @@ print("Calculating for O-Si ...")
 
 h2 = np.zeros(nk)
 g2 = np.zeros(nk)
+rho = n_O/np.prod(box)
+const = 4/3*np.pi*rho
 # Calcul du h
 for m in range(0,nstep) :
     for i in range(0,n_O) :
@@ -142,7 +147,7 @@ for m in range(0,nstep) :
 
 #normalisation pour g
 for k in range(0,nk) :
-    g2[k] = h2[k]/(n*nstep)
+    g2[k] = h2[k]/(n_O*nstep)
     r_low = (k-1)*dr
     r_high = r_low+dr 
     h_id = const*(r_high**3 - r_low**3) #Aire de la surface entre r et r+dr
@@ -158,6 +163,8 @@ print("Calculating for Si-Si ...")
 
 h3 = np.zeros(nk)
 g3 = np.zeros(nk)
+rho = n_Si/np.prod(box)
+const = 4/3*np.pi*rho
 # Calcul du h
 for m in range(0,nstep) :
     for i in range(n_O,n) :
@@ -174,7 +181,7 @@ for m in range(0,nstep) :
 
 #normalisation pour g
 for k in range(0,nk) :
-    g3[k] = h3[k]/(n*nstep)
+    g3[k] = h3[k]/(n_Si*nstep)
     r_low = (k-1)*dr
     r_high = r_low+dr 
     h_id = const*(r_high**3 - r_low**3) #Aire de la surface entre r et r+dr
